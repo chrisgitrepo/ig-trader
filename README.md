@@ -1,4 +1,4 @@
-# igclient
+# ig-trader
 Minimalist Node.js client for programmatically spread betting with the IG API
 
 # Installation
@@ -20,7 +20,7 @@ CommonJS:
 # Usage
 
 ```
-const trader = new IGTrader({
+const igTrader = new IGTrader({
   apiKey: 'ig-api-key',
   username: 'ig-username',
   password: 'ig-password',
@@ -28,7 +28,7 @@ const trader = new IGTrader({
 })
 
 const trade = async (obj) => {
-  return await createPosition(obj)
+  return await igTrader.createPosition(obj)
 }
 
 trade({

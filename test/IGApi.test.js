@@ -9,13 +9,13 @@ const igParams = {
 jest.mock('../lib/ig')
 
 describe('IGTrader', () => {
-  test('should create an igClient with valid constructor', () => {
+  test('should create an igTrader with valid constructor', () => {
     const { apiKey, username, password } = igParams
-    const igClient = new IGTrader(igParams)
+    const igTrader = new IGTrader(igParams)
 
-    expect(igClient.username).toBe(username)
-    expect(igClient.password).toBe(password)
-    expect(igClient.ig.apiKey).toBe(apiKey)
-    expect(igClient.ig.isDemo).toBeTruthy()
+    expect(igTrader.username).toBe(username)
+    expect(igTrader.password).toBe(password)
+    expect(igTrader.ig.apiKey).toBe(apiKey)
+    expect(igTrader.ig.isDemo).toBeTruthy()
   })
 })

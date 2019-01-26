@@ -21,7 +21,7 @@ class IGTrader {
         await this.ig.login(this.username, this.password)
         this.loggedIn = true
       } catch (error) {
-        console.error('Error with igClient initialise', error)
+        console.error('Error with ig-trader initialise', error)
       }
     }
   }
