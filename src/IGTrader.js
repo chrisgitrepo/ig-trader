@@ -1,9 +1,9 @@
 const moment = require('moment')
 
-const IG = require('../lib/ig')
-const { getMidPrice } = require('../lib/math')
-const { timeframes, markets } = require('../lib/config')
-const C = require('../lib/constants')
+const IG = require('./lib/ig')
+const { getMidPrice } = require('./lib/math')
+const { timeframes, markets } = require('./lib/config')
+const C = require('./lib/constants')
 
 class IGTrader {
 
