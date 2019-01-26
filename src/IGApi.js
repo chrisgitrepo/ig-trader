@@ -5,7 +5,7 @@ const { getMidPrice } = require('../lib/math')
 const { timeframes, markets } = require('../lib/config')
 const C = require('../lib/constants')
 
-class IGApi {
+class IGTrader {
 
   constructor(igParams) {
     const { apiKey, username, password, type } = igParams
@@ -148,4 +148,4 @@ class IGApi {
   }
 }
 
-module.exports = IGApi
+module.exports = IGTrader

@@ -1,4 +1,4 @@
-const IGApi = require('../src')
+const IGTrader = require('../src')
 
 const igParams = {
   apiKey: 'test-api',
@@ -8,10 +8,10 @@ const igParams = {
 }
 jest.mock('../lib/ig')
 
-describe('IGApi', () => {
+describe('IGTrader', () => {
   test('should create an igClient with valid constructor', () => {
     const { apiKey, username, password } = igParams
-    const igClient = new IGApi(igParams)
+    const igClient = new IGTrader(igParams)
 
     expect(igClient.username).toBe(username)
     expect(igClient.password).toBe(password)

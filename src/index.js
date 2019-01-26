@@ -1,3 +1,3 @@
-const IGApi = require('./IGApi')
+const IGTrader = require('./IGTrader')
 
-module.exports = IGApi
+module.exports = IGTrader
