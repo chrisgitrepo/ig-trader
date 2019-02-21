@@ -1,0 +1,40 @@
+[
+  {
+    "epic": "CS.D.EURJPY.TODAY.IP",
+    "dealId": "DIAAAACH7P9PYA8",
+    "activityHistoryId": "850612518",
+    "date": "21/02/19",
+    "time": "12:32",
+    "activity": "Order",
+    "marketName": "EUR/JPY",
+    "period": "DFB",
+    "result": "Position/s closed: H7RAQ4AM",
+    "channel": "System",
+    "currency": "£",
+    "size": "-0.87",
+    "level": "12560.645",
+    "stop": "12560.645",
+    "stopType": "N",
+    "limit": "-",
+    "actionStatus": "ACCEPT"
+  },
+  {
+    "epic": "CS.D.USDCAD.TODAY.IP",
+    "dealId": "DIAAAACH7VFGVAR",
+    "activityHistoryId": "850612050",
+    "date": "21/02/19",
+    "time": "12: 32",
+    "activity": "Market Order",
+    "marketName": "USD/CAD",
+    "period": "DFB",
+    "result": "Position opened: H7VFGVAR",
+    "channel": "API",
+    "currency": "£",
+    "size": "-1.03",
+    "level": "13177",
+    "stop": "13237.7303",
+    "stopType": "N",
+    "limit": "-",
+    "actionStatus": "ACCEPT"
+  }
+]

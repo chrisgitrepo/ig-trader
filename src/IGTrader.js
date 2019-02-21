@@ -146,6 +146,18 @@ class IGTrader {
       console.error(error)
     }
   }
+
+  async activity({ minutesAgo }) {
+    await this.initialise()
+    const past = moment().subtract(minutesAgo, 'minutes')
+    const lastPeriod = moment().diff(past)
+    try {
+      const { activities } = await this.ig.get(`history/activity/${lastPeriod}`, 1)
+      return activities
+    } catch (error) {
+      console.error(error)
+    }
+  }
 }
 
 module.exports = IGTrader
