@@ -1,0 +1,27 @@
+{
+  "date": "2019-02-22T11:48:20.039",
+  "status": "OPEN",
+  "reason": "SUCCESS",
+  "dealStatus": "ACCEPTED",
+  "epic": "CS.D.NZDJPY.TODAY.IP",
+  "expiry": "DFB",
+  "dealReference": "SG7LY7YSWJQL4S4",
+  "dealId": "DIAAAACH84LR4AY",
+  "affectedDeals": [
+    {
+      "dealId": "DIAAAACH84LR4AY",
+      "status": "OPENED"
+    }
+  ],
+  "level": 7546.5,
+  "size": 0.5,
+  "direction": "BUY",
+  "stopLevel": null,
+  "limitLevel": null,
+  "stopDistance": null,
+  "limitDistance": null,
+  "guaranteedStop": false,
+  "trailingStop": false,
+  "profit": null,
+  "profitCurrency": null
+}

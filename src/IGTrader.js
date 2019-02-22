@@ -158,6 +158,27 @@ class IGTrader {
       console.error(error)
     }
   }
+
+  async transactions({ minutesAgo }) {
+    await this.initialise()
+    const past = moment().subtract(minutesAgo, 'minutes')
+    const lastPeriod = moment().diff(past)
+    try {
+      const { transactions } = await this.ig.get(`history/transactions/ALL_DEAL/${lastPeriod}`, 1)
+      return transactions
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  async confirm({ dealReference }) {
+    await this.initialise()
+    try {
+      return await this.ig.get(`/confirms/${dealReference}`, 1)
+    } catch (error) {
+      console.error(error)
+    }
+  }
 }
 
 module.exports = IGTrader
