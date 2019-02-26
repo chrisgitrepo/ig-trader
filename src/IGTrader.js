@@ -15,6 +15,12 @@ class IGTrader {
     this.ig = new IG(apiKey, isDemo)
   }
 
+  static removeCurrentCandle(data) {
+    const sortedData = data.sort((oldest, newest) => moment(oldest.timestamp).diff(moment(newest.timestamp)))
+    sortedData.pop()
+    return sortedData
+  }
+
   async initialise() {
     if (!this.loggedIn) {
       try {
@@ -79,7 +85,7 @@ class IGTrader {
         return []
       }
 
-      const pricesObj = await this.ig.get(`prices/${epic}/${timeframe}/${datapoints}`, 2)
+      const pricesObj = await this.ig.get(`prices/${epic}/${timeframe}/${datapoints + 1}`, 2)
       const { prices, allowance } = pricesObj
       const { remainingAllowance, totalAllowance, allowanceExpiry } = allowance
       const formattedExpiry = (moment.duration(allowanceExpiry, 'seconds').asDays()).toFixed(1)
@@ -102,7 +108,8 @@ class IGTrader {
           low: getMidPrice(price.lowPrice.bid, price.lowPrice.ask)
         }
       })
-      return formattedPrices
+      return IGTrader.removeCurrentCandle(formattedPrices)
+
     } catch (error) {
       throw new Error(error)
     }
