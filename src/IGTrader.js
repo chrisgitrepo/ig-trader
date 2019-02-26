@@ -133,11 +133,14 @@ class IGTrader {
       if(!marketDetails) {
         console.log(`NO marketDetails found, full markets response = ${JSON.stringify(marketsObj)}`)
       }
+      const dateUpdated = moment().format(C.DATE_FORMAT)
+
       return marketDetails.map(offer => ({
         currency: offer.instrument.name,
         currentPrice: getMidPrice(offer.snapshot.bid, offer.snapshot.offer),
         timeUpdated: moment(offer.snapshot.updateTime, 'HH:mm:ss').format(C.TIME_FORMAT),
-        dateUpdated: moment().format(C.DATE_FORMAT)
+        dateUpdated,
+        timestamp: moment(`${dateUpdated} / ${offer.snapshot.updateTime}`, C.DATETIME_FORMAT).unix()
       }))
     } catch (error) {
       console.error(error)
