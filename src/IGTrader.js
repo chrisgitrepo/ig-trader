@@ -101,9 +101,6 @@ class IGTrader {
         const snapshotTimeUTC = moment.utc(price.snapshotTime, 'YYYY/MM/DD HH:mm:ss')
         const snapshotTimeUK = moment.tz(snapshotTimeUTC, moment.ISO_8601, 'Europe/London')
 
-        console.log(`snapshotTimeUTC = ${snapshotTimeUTC}`)
-        console.log(`snapshotTimeUK = ${snapshotTimeUK}`)
-
         return {
           id: C.historicalID({ pair, timeframe }),
           timestamp: snapshotTimeUK.unix(),
@@ -144,11 +141,8 @@ class IGTrader {
 
       return marketDetails.map(offer => {
 
-        const updateTimeUTC = moment.utc(offer.snapshot.updateTime, 'HH:mm:ss').format('HH:mm:ss')
-        const updateTimeUK = moment.tz(updateTimeUTC, 'HH:mm:ss', 'Europe/London')
-
-        console.log(`updateTimeUTC = ${updateTimeUTC}`)
-        console.log(`updateTimeUK = ${updateTimeUK}`)
+        const updateTimeUTC = moment.utc(offer.snapshot.updateTime, 'HH:mm:ss')
+        const updateTimeUK = moment.tz(updateTimeUTC, moment.ISO_8601, 'Europe/London')
 
         return {
           currency: offer.instrument.name,

@@ -1,18 +1,165 @@
-const moment = require('moment-timezone')
-moment.tz.setDefault('Europe/London');
+const timeframes = ['SECOND', 'MINUTE', 'MINUTE_2', 'MINUTE_3', 'MINUTE_5', 'MINUTE_15', 'MINUTE_30', 'HOUR', 'HOUR_2', 'HOUR_3', 'HOUR_4', 'DAY', 'WEEK', 'MONTH']
+const markets = [{
+  epic: 'CS.D.GBPUSD.TODAY.IP',
+  instrumentName: 'GBP/USD',
+  instrumentType: 'CURRENCIES',
+  expiry: 'DFB',
+  maxSpread: 1.0,
+  retailMarginPct: 0.033
+}, {
+  epic: 'CS.D.USDJPY.TODAY.IP',
+  instrumentName: 'USD/JPY',
+  instrumentType: 'CURRENCIES',
+  expiry: 'DFB',
+  maxSpread: 0.8,
+  retailMarginPct: 0.033
+}, {
+  epic: 'CS.D.EURCHF.TODAY.IP',
+  instrumentName: 'EUR/CHF',
+  instrumentType: 'CURRENCIES',
+  expiry: 'DFB',
+  maxSpread: 2.1,
+  retailMarginPct: 0.033
+}, {
+  epic: 'CS.D.EURGBP.TODAY.IP',
+  instrumentName: 'EUR/GBP',
+  instrumentType: 'CURRENCIES',
+  expiry: 'DFB',
+  maxSpread: 1.0,
+  retailMarginPct: 0.033
+}, {
+  epic: 'CS.D.EURJPY.TODAY.IP',
+  instrumentName: 'EUR/JPY',
+  instrumentType: 'CURRENCIES',
+  expiry: 'DFB',
+  maxSpread: 1.6,
+  retailMarginPct: 0.033
+}, {
+  epic: 'CS.D.EURUSD.TODAY.IP',
+  instrumentName: 'EUR/USD',
+  instrumentType: 'CURRENCIES',
+  expiry: 'DFB',
+  maxSpread: 0.7,
+  retailMarginPct: 0.033
+}, {
+  epic: 'CS.D.GBPJPY.TODAY.IP',
+  instrumentName: 'GBP/JPY',
+  instrumentType: 'CURRENCIES',
+  expiry: 'DFB',
+  maxSpread: 2.6,
+  retailMarginPct: 0.033
+}, {
+  epic: 'CS.D.USDCHF.TODAY.IP',
+  instrumentName: 'USD/CHF',
+  instrumentType: 'CURRENCIES',
+  expiry: 'DFB',
+  maxSpread: 2.1,
+  retailMarginPct: 0.033
+}, {
+  epic: 'CS.D.AUDJPY.TODAY.IP',
+  instrumentName: 'AUD/JPY',
+  instrumentType: 'CURRENCIES',
+  expiry: 'DFB',
+  maxSpread: 1.4,
+  retailMarginPct: 0.05
+}, {
+  epic: 'CS.D.AUDUSD.TODAY.IP',
+  instrumentName: 'AUD/USD',
+  instrumentType: 'CURRENCIES',
+  expiry: 'DFB',
+  maxSpread: 0.7,
+  retailMarginPct: 0.05
+}, {
+  epic: 'CS.D.CHFJPY.TODAY.IP',
+  instrumentName: 'CHF/JPY',
+  instrumentType: 'CURRENCIES',
+  expiry: 'DFB',
+  maxSpread: 2.1,
+  retailMarginPct: 0.033
+}, {
+  epic: 'CS.D.USDCAD.TODAY.IP',
+  instrumentName: 'USD/CAD',
+  instrumentType: 'CURRENCIES',
+  expiry: 'DFB',
+  maxSpread: 1.8,
+  retailMarginPct: 0.033
+}, {
+  epic: 'CS.D.EURAUD.TODAY.IP',
+  instrumentName: 'EUR/AUD',
+  instrumentType: 'CURRENCIES',
+  expiry: 'DFB',
+  maxSpread: 1.9,
+  retailMarginPct: 0.05
+}, {
+  epic: 'CS.D.GBPAUD.TODAY.IP',
+  instrumentName: 'GBP/AUD',
+  instrumentType: 'CURRENCIES',
+  expiry: 'DFB',
+  maxSpread: 2.0,
+  retailMarginPct: 0.05
+}, {
+  epic: 'CS.D.GBPCHF.TODAY.IP',
+  instrumentName: 'GBP/CHF',
+  instrumentType: 'CURRENCIES',
+  expiry: 'DFB',
+  maxSpread: 3.1,
+  retailMarginPct: 0.033
+}, {
+  epic: 'CS.D.CADJPY.TODAY.IP',
+  instrumentName: 'CAD/JPY',
+  instrumentType: 'CURRENCIES',
+  expiry: 'DFB',
+  maxSpread: 2.6,
+  retailMarginPct: 0.033
+}, {
+  epic: 'CS.D.EURCAD.TODAY.IP',
+  instrumentName: 'EUR/CAD',
+  instrumentType: 'CURRENCIES',
+  expiry: 'DFB',
+  maxSpread: 3.1,
+  retailMarginPct: 0.033
+}, {
+  epic: 'CS.D.GBPCAD.TODAY.IP',
+  instrumentName: 'GBP/CAD',
+  instrumentType: 'CURRENCIES',
+  expiry: 'DFB',
+  maxSpread: 3.6,
+  retailMarginPct: 0.033
+}, {
+  epic: 'CS.D.AUDCAD.TODAY.IP',
+  instrumentName: 'AUD/CAD',
+  instrumentType: 'CURRENCIES',
+  expiry: 'DFB',
+  maxSpread: 2.1,
+  retailMarginPct: 0.05
+}, {
+  epic: 'CS.D.EURNZD.TODAY.IP',
+  instrumentName: 'EUR/NZD',
+  instrumentType: 'CURRENCIES',
+  expiry: 'DFB',
+  maxSpread: 3.1,
+  retailMarginPct: 0.05
+}, {
+  epic: 'CS.D.AUDNZD.TODAY.IP',
+  instrumentName: 'AUD/NZD',
+  instrumentType: 'CURRENCIES',
+  expiry: 'DFB',
+  maxSpread: 3.1,
+  retailMarginPct: 0.05
+}, {
+  epic: 'CS.D.NZDUSD.TODAY.IP',
+  instrumentName: 'NZD/USD',
+  instrumentType: 'CURRENCIES',
+  expiry: 'DFB',
+  maxSpread: 2.1,
+  retailMarginPct: 0.05
+}, {
+  epic: 'CS.D.NZDJPY.TODAY.IP',
+  instrumentName: 'NZD/JPY',
+  instrumentType: 'CURRENCIES',
+  expiry: 'DFB',
+  maxSpread: 2.6,
+  retailMarginPct: 0.05
+}]
 
-const utc = moment.tz(moment(), moment.ISO_8601, 'Etc/UTC')
-
-const london = moment.tz(utc, moment.ISO_8601, 'Europe/London')
-
-
-
-// myTime.format() //2016-08-30T22:00:00-06:00
-
-// const sameTimeDifferentZone = moment.tz(myTime.format('YYYY-MM-DDTHH:mm:ss.SSS'), moment.ISO_8601, 'America/New_York')
-
-// sameTimeDifferentZone.format() //2016-08-30T22:00:00-04:00
-
-console.log(JSON.stringify(utc.format('DD-MM-YY HH:mm')));
-console.log(JSON.stringify(london.format('DD-MM-YY HH:mm')));
-console.log(JSON.stringify(london.unix()));
+console.log(markets.map(m => m.instrumentName));

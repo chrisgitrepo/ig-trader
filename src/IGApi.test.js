@@ -1,9 +1,9 @@
-const IGTrader = require('../src')
+const IGTrader = require('.')
 
 const igParams = {
   apiKey: 'e0d4f0c6a2eab817d0d654eedfe1d04efff69904',
-  username: 'rcrDemo',
-  password: 'rcrDemo123',
+  username: 'cs3011',
+  password: 'rcrDemo3011',
   type: 'demo'
 }
 // jest.mock('../src/lib/ig')
@@ -14,7 +14,7 @@ describe('IGTrader', () => {
     const igTrader = new IGTrader(igParams)
 
     const data = await igTrader.historical({
-      pair: 'AUD/CAD',
+      pair: 'USD/CAD',
       timeframe: 'HOUR_4',
       datapoints: 2
     })
