@@ -98,8 +98,11 @@ class IGTrader {
         const open = getMidPrice(price.openPrice.bid, price.openPrice.ask)
         const mid = getMidPrice(open, close)
 
-        const snapshotTimeUTC = moment.tz(moment(price.snapshotTime, 'YYYY/MM/DD HH:mm:ss'), moment.ISO_8601, 'Etc/UTC')
+        const snapshotTimeUTC = moment.utc(price.snapshotTime, 'YYYY/MM/DD HH:mm:ss')
         const snapshotTimeUK = moment.tz(snapshotTimeUTC, moment.ISO_8601, 'Europe/London')
+
+        console.log(`snapshotTimeUTC = ${snapshotTimeUTC}`)
+        console.log(`snapshotTimeUK = ${snapshotTimeUK}`)
 
         return {
           id: C.historicalID({ pair, timeframe }),
@@ -141,8 +144,11 @@ class IGTrader {
 
       return marketDetails.map(offer => {
 
-        const updateTimeUTC = moment.tz(moment(offer.snapshot.updateTime, 'HH:mm:ss'), moment.ISO_8601, 'Etc/UTC')
-        const updateTimeUK = moment.tz(updateTimeUTC, moment.ISO_8601, 'Europe/London')
+        const updateTimeUTC = moment.utc(offer.snapshot.updateTime, 'HH:mm:ss').format('HH:mm:ss')
+        const updateTimeUK = moment.tz(updateTimeUTC, 'HH:mm:ss', 'Europe/London')
+
+        console.log(`updateTimeUTC = ${updateTimeUTC}`)
+        console.log(`updateTimeUK = ${updateTimeUK}`)
 
         return {
           currency: offer.instrument.name,
