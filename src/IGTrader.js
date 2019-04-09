@@ -1,5 +1,5 @@
 const moment = require('moment-timezone')
-moment.tz.setDefault('Europe/London');
+moment.tz.setDefault('Europe/London')
 
 const IG = require('./lib/ig')
 const { getMidPrice } = require('./lib/math')
@@ -98,10 +98,13 @@ class IGTrader {
         const open = getMidPrice(price.openPrice.bid, price.openPrice.ask)
         const mid = getMidPrice(open, close)
 
+        const snapshotTimeUTC = moment.tz(moment(price.snapshotTime, 'YYYY/MM/DD HH:mm:ss'), moment.ISO_8601, 'Etc/UTC')
+        const snapshotTimeUK = moment.tz(snapshotTimeUTC, moment.ISO_8601, 'Europe/London')
+
         return {
           id: C.historicalID({ pair, timeframe }),
-          timestamp: moment(price.snapshotTime, 'YYYY/MM/DD HH:mm:ss').unix(),
-          datetime: moment(price.snapshotTime, 'YYYY/MM/DD HH:mm:ss').format(C.DATETIME_FORMAT),
+          timestamp: snapshotTimeUK.unix(),
+          datetime: snapshotTimeUK.format(C.DATETIME_FORMAT),
           close,
           open,
           mid,
@@ -136,13 +139,20 @@ class IGTrader {
       }
       const dateUpdated = moment().format(C.DATE_FORMAT)
 
-      return marketDetails.map(offer => ({
-        currency: offer.instrument.name,
-        currentPrice: getMidPrice(offer.snapshot.bid, offer.snapshot.offer),
-        timeUpdated: moment(offer.snapshot.updateTime, 'HH:mm:ss').format(C.TIME_FORMAT),
-        dateUpdated,
-        timestamp: moment(`${dateUpdated} / ${offer.snapshot.updateTime}`, C.DATETIME_FORMAT).unix()
-      }))
+      return marketDetails.map(offer => {
+
+        const updateTimeUTC = moment.tz(moment(offer.snapshot.updateTime, 'HH:mm:ss'), moment.ISO_8601, 'Etc/UTC')
+        const updateTimeUK = moment.tz(updateTimeUTC, moment.ISO_8601, 'Europe/London')
+
+        return {
+          currency: offer.instrument.name,
+          currentPrice: getMidPrice(offer.snapshot.bid, offer.snapshot.offer),
+          timeUpdated: updateTimeUK.format(C.TIME_FORMAT),
+          dateUpdated,
+          timestamp: moment(`${dateUpdated} / ${updateTimeUK.format('HH:mm:ss')}`, C.DATETIME_FORMAT).unix()
+        }
+      }
+      )
     } catch (error) {
       console.error(error)
     }
