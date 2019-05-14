@@ -308,13 +308,6 @@ const markets = [{
   maxSpread: 50.1,
   retailMarginPct: 0.05
 }, {
-  epic: 'CS.D.CHFSGD.TODAY.IP',
-  instrumentName: 'CHF/SGD',
-  instrumentType: 'CURRENCIES',
-  expiry: 'DFB',
-  maxSpread: 0.1,
-  retailMarginPct: 0.05
-}, {
   epic: 'CS.D.SGDJPY.TODAY.IP',
   instrumentName: 'SGD/JPY',
   instrumentType: 'CURRENCIES',
