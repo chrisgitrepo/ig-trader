@@ -115,7 +115,7 @@ class IGTrader {
       return IGTrader.removeCurrentCandle(formattedPrices)
 
     } catch (error) {
-      throw new Error(error)
+      console.error(`Error with pair: ${pair}. ${error}`)
     }
   }
 
