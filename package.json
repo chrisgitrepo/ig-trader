@@ -1,6 +1,6 @@
 {
   "name": "ig-trader",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "A client to programmatically spreadbet with IG",
   "main": "./src/index.js",
   "files": [
@@ -28,11 +28,11 @@
   },
   "homepage": "https://github.com/chrisgitrepo/ig-trader#readme",
   "dependencies": {
-    "axios": "0.18.0",
+    "axios": "^0.19.0",
     "moment-timezone": "^0.5.23",
     "rambda": "2.3.1"
   },
   "devDependencies": {
-    "jest": "^24.7.1"
+    "jest": "^24.8.0"
   }
 }
