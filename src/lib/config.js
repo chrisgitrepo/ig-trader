@@ -182,12 +182,12 @@ const markets = [{
   maxSpread: 3.1,
   retailMarginPct: 0.05
 }, {
-  epic: 'CS.D.AUDSGD.TODAY.IP',
-  instrumentName: 'AUD/SGD',
+  epic: 'CS.D.NOKSEK.TODAY.IP',
+  instrumentName: 'NOK/SEK',
   instrumentType: 'CURRENCIES',
   expiry: 'DFB',
-  maxSpread: 3.1,
-  retailMarginPct: 0.033
+  maxSpread: 6.1,
+  retailMarginPct: 0.05
 }, {
   epic: 'CS.D.NZDCAD.TODAY.IP',
   instrumentName: 'NZD/CAD',
@@ -229,83 +229,6 @@ const markets = [{
   instrumentType: 'CURRENCIES',
   expiry: 'DFB',
   maxSpread: 25.1,
-  retailMarginPct: 0.05
-}, {
-  epic: 'CS.D.EURNOK.TODAY.IP',
-  instrumentName: 'EUR/NOK',
-  instrumentType: 'CURRENCIES',
-  expiry: 'DFB',
-  maxSpread: 25.1,
-  retailMarginPct: 0.05
-}, {
-  epic: 'CS.D.USDNOK.TODAY.IP',
-  instrumentName: 'USD/NOK',
-  instrumentType: 'CURRENCIES',
-  expiry: 'DFB',
-  maxSpread: 25.1,
-  retailMarginPct: 0.05
-}, {
-  epic: 'CS.D.USDSEK.TODAY.IP',
-  instrumentName: 'USD/SEK',
-  instrumentType: 'CURRENCIES',
-  expiry: 'DFB',
-  maxSpread: 25.1,
-  retailMarginPct: 0.05
-}, {
-  epic: 'CS.D.USDCZK.TODAY.IP',
-  instrumentName: 'USD/CZK',
-  instrumentType: 'CURRENCIES',
-  expiry: 'DFB',
-  maxSpread: 25.1,
-  retailMarginPct: 0.05
-}, {
-  epic: 'CS.D.EURSEK.TODAY.IP',
-  instrumentName: 'EUR/SEK',
-  instrumentType: 'CURRENCIES',
-  expiry: 'DFB',
-  maxSpread: 30.1,
-  retailMarginPct: 0.05
-}, {
-  epic: 'CS.D.USDTRY.TODAY.IP',
-  instrumentName: 'USD/TRY',
-  instrumentType: 'CURRENCIES',
-  expiry: 'DFB',
-  maxSpread: 50.1,
-  retailMarginPct: 0.1
-}, {
-  epic: 'CS.D.EURTRY.TODAY.IP',
-  instrumentName: 'EUR/TRY',
-  instrumentType: 'CURRENCIES',
-  expiry: 'DFB',
-  maxSpread: 60.1,
-  retailMarginPct: 0.1
-}, {
-  epic: 'CS.D.SEKJPY.TODAY.IP',
-  instrumentName: 'SEK/JPY',
-  instrumentType: 'CURRENCIES',
-  expiry: 'DFB',
-  maxSpread: 0.7,
-  retailMarginPct: 0.05
-}, {
-  epic: 'CS.D.NOKSEK.TODAY.IP',
-  instrumentName: 'NOK/SEK',
-  instrumentType: 'CURRENCIES',
-  expiry: 'DFB',
-  maxSpread: 6.1,
-  retailMarginPct: 0.05
-}, {
-  epic: 'CS.D.NOKJPY.TODAY.IP',
-  instrumentName: 'NOK/JPY',
-  instrumentType: 'CURRENCIES',
-  expiry: 'DFB',
-  maxSpread: 1.1,
-  retailMarginPct: 0.05
-}, {
-  epic: 'CS.D.GBPNOK.TODAY.IP',
-  instrumentName: 'GBP/NOK',
-  instrumentType: 'CURRENCIES',
-  expiry: 'DFB',
-  maxSpread: 50.1,
   retailMarginPct: 0.05
 }, {
   epic: 'CS.D.SGDJPY.TODAY.IP',
