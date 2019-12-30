@@ -182,13 +182,6 @@ const markets = [{
   maxSpread: 3.1,
   retailMarginPct: 0.05
 }, {
-  epic: 'CS.D.NOKSEK.TODAY.IP',
-  instrumentName: 'NOK/SEK',
-  instrumentType: 'CURRENCIES',
-  expiry: 'DFB',
-  maxSpread: 6.1,
-  retailMarginPct: 0.05
-}, {
   epic: 'CS.D.NZDCAD.TODAY.IP',
   instrumentName: 'NZD/CAD',
   instrumentType: 'CURRENCIES',
@@ -208,27 +201,6 @@ const markets = [{
   instrumentType: 'CURRENCIES',
   expiry: 'DFB',
   maxSpread: 5.1,
-  retailMarginPct: 0.05
-}, {
-  epic: 'CS.D.USDHUF.TODAY.IP',
-  instrumentName: 'USD/HUF',
-  instrumentType: 'CURRENCIES',
-  expiry: 'DFB',
-  maxSpread: 20.1,
-  retailMarginPct: 0.05
-}, {
-  epic: 'CS.D.EURPLN.TODAY.IP',
-  instrumentName: 'EUR/PLN',
-  instrumentType: 'CURRENCIES',
-  expiry: 'DFB',
-  maxSpread: 25.1,
-  retailMarginPct: 0.05
-}, {
-  epic: 'CS.D.USDPLN.TODAY.IP',
-  instrumentName: 'USD/PLN',
-  instrumentType: 'CURRENCIES',
-  expiry: 'DFB',
-  maxSpread: 25.1,
   retailMarginPct: 0.05
 }, {
   epic: 'CS.D.SGDJPY.TODAY.IP',
