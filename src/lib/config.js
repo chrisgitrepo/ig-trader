@@ -175,25 +175,11 @@ const markets = [{
   maxSpread: 2.6,
   retailMarginPct: 0.033
 }, {
-  epic: 'CS.D.USDSGD.TODAY.IP',
-  instrumentName: 'USD/SGD',
-  instrumentType: 'CURRENCIES',
-  expiry: 'DFB',
-  maxSpread: 3.1,
-  retailMarginPct: 0.05
-}, {
   epic: 'CS.D.NZDCAD.TODAY.IP',
   instrumentName: 'NZD/CAD',
   instrumentType: 'CURRENCIES',
   expiry: 'DFB',
   maxSpread: 3.6,
-  retailMarginPct: 0.05
-}, {
-  epic: 'CS.D.GBPSGD.TODAY.IP',
-  instrumentName: 'GBP/SGD',
-  instrumentType: 'CURRENCIES',
-  expiry: 'DFB',
-  maxSpread: 5.1,
   retailMarginPct: 0.05
 }, {
   epic: 'CS.D.GBPNZD.TODAY.IP',
@@ -203,22 +189,8 @@ const markets = [{
   maxSpread: 5.1,
   retailMarginPct: 0.05
 }, {
-  epic: 'CS.D.SGDJPY.TODAY.IP',
-  instrumentName: 'SGD/JPY',
-  instrumentType: 'CURRENCIES',
-  expiry: 'DFB',
-  maxSpread: 4.1,
-  retailMarginPct: 0.05
-}, {
   epic: 'CS.D.NZDCHF.TODAY.IP',
   instrumentName: 'NZD/CHF',
-  instrumentType: 'CURRENCIES',
-  expiry: 'DFB',
-  maxSpread: 4.1,
-  retailMarginPct: 0.05
-}, {
-  epic: 'CS.D.EURSGD.TODAY.IP',
-  instrumentName: 'EUR/SGD',
   instrumentType: 'CURRENCIES',
   expiry: 'DFB',
   maxSpread: 4.1,
