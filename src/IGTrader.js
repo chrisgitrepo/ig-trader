@@ -1,5 +1,5 @@
 const moment = require('moment-timezone')
-moment.tz.setDefault('Europe/London')
+moment.tz.setDefault('UTC')
 
 const IG = require('./lib/ig')
 const { getMidPrice } = require('./lib/math')
@@ -99,12 +99,11 @@ class IGTrader {
         const mid = getMidPrice(open, close)
 
         const snapshotTimeUTC = moment.utc(price.snapshotTime, 'YYYY/MM/DD HH:mm:ss')
-        const snapshotTimeUK = moment.tz(snapshotTimeUTC, moment.ISO_8601, 'Europe/London')
 
         return {
           id: C.historicalID({ pair, timeframe }),
-          timestamp: snapshotTimeUK.unix(),
-          datetime: snapshotTimeUK.format(C.DATETIME_FORMAT),
+          timestamp: snapshotTimeUTC.unix(),
+          datetime: snapshotTimeUTC.format(C.DATETIME_FORMAT),
           close,
           open,
           mid,
@@ -142,14 +141,13 @@ class IGTrader {
       return marketDetails.map(offer => {
 
         const updateTimeUTC = moment.utc(offer.snapshot.updateTime, 'HH:mm:ss')
-        const updateTimeUK = moment.tz(updateTimeUTC, moment.ISO_8601, 'Europe/London')
 
         return {
           currency: offer.instrument.name,
           currentPrice: getMidPrice(offer.snapshot.bid, offer.snapshot.offer),
-          timeUpdated: updateTimeUK.format(C.TIME_FORMAT),
+          timeUpdated: updateTimeUTC.format(C.TIME_FORMAT),
           dateUpdated,
-          timestamp: moment(`${dateUpdated} / ${updateTimeUK.format('HH:mm:ss')}`, C.DATETIME_FORMAT).unix()
+          timestamp: moment(`${dateUpdated} / ${updateTimeUTC.format('HH:mm:ss')}`, C.DATETIME_FORMAT).unix()
         }
       }
       )
