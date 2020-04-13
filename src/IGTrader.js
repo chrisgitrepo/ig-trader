@@ -98,7 +98,7 @@ class IGTrader {
         const open = getMidPrice(price.openPrice.bid, price.openPrice.ask)
         const mid = getMidPrice(open, close)
 
-        const snapshotTimeUTC = moment.utc(price.snapshotTime, 'YYYY/MM/DD HH:mm:ss')
+        const snapshotTimeUTC = moment(price.snapshotTimeUTC, 'YYYY-MM-DD HH:mm:ss')
 
         return {
           id: C.historicalID({ pair, timeframe }),
@@ -140,7 +140,7 @@ class IGTrader {
 
       return marketDetails.map(offer => {
 
-        const updateTimeUTC = moment.utc(offer.snapshot.updateTime, 'HH:mm:ss')
+        const updateTimeUTC = moment(offer.snapshot.updateTime, 'HH:mm:ss')
 
         return {
           currency: offer.instrument.name,
