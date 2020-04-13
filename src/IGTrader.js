@@ -86,8 +86,10 @@ class IGTrader {
         return []
       }
 
-      const pricesObj = await this.ig.get(`prices/${epic}/${timeframe}/${datapoints + 1}`, 2)
-      const { prices, allowance } = pricesObj
+      // const pricesObj = await this.ig.get(`prices/${epic}/${timeframe}/${datapoints + 1}`, 2)
+      const pricesObj = await this.ig.get(`prices/${epic}?resolution=${timeframe}&pageSize=${datapoints + 1}`, 3)
+
+      const { prices, metadata: { allowance }} = pricesObj
       const { remainingAllowance, totalAllowance, allowanceExpiry } = allowance
       const formattedExpiry = (moment.duration(allowanceExpiry, 'seconds').asDays()).toFixed(1)
       console.log(`IG Allowance: ${remainingAllowance} (Remaining) ${totalAllowance} (Total) ${formattedExpiry} Days (Expiry)`)
@@ -98,9 +100,7 @@ class IGTrader {
         const open = getMidPrice(price.openPrice.bid, price.openPrice.ask)
         const mid = getMidPrice(open, close)
 
-        const snapshotTimeUTC = moment(price.snapshotTimeUTC, moment.ISO_8601)
-
-        console.log('snapshotTimeUTC ', snapshotTimeUTC);
+        const snapshotTimeUTC = moment(price.snapshotTimeUTC, 'YYYY-MM-DD[T]HH:mm:ss')
 
         return {
           id: C.historicalID({ pair, timeframe }),
