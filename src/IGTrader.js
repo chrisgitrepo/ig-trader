@@ -98,7 +98,9 @@ class IGTrader {
         const open = getMidPrice(price.openPrice.bid, price.openPrice.ask)
         const mid = getMidPrice(open, close)
 
-        const snapshotTimeUTC = moment(price.snapshotTimeUTC, 'YYYY-MM-DD HH:mm:ss')
+        const snapshotTimeUTC = moment(price.snapshotTimeUTC, moment.ISO_8601)
+
+        console.log('snapshotTimeUTC ', snapshotTimeUTC);
 
         return {
           id: C.historicalID({ pair, timeframe }),
