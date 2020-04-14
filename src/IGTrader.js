@@ -87,12 +87,13 @@ class IGTrader {
       }
 
       // const pricesObj = await this.ig.get(`prices/${epic}/${timeframe}/${datapoints + 1}`, 2)
-      const pricesObj = await this.ig.get(`prices/${epic}?resolution=${timeframe}&pageSize=${datapoints + 1}`, 3)
-
+      const pricesObj = await this.ig.get(`prices/${epic}?resolution=${timeframe}&max=${datapoints+1}&pageSize=${datapoints+1}`, 3)
       const { prices, metadata: { allowance }} = pricesObj
       const { remainingAllowance, totalAllowance, allowanceExpiry } = allowance
       const formattedExpiry = (moment.duration(allowanceExpiry, 'seconds').asDays()).toFixed(1)
-      console.log(`IG Allowance: ${remainingAllowance} (Remaining) ${totalAllowance} (Total) ${formattedExpiry} Days (Expiry)`)
+
+      console.log(`[${pair}] Prices Length: ${prices.length} IG Allowance: ${remainingAllowance} (Remaining) ${totalAllowance} (Total) ${formattedExpiry} Days (Expiry)`)
+
       if (!prices || prices.length === 0) throw new Error(`Error with IG response - returned prices: ${prices}`)
 
       const formattedPrices = prices.map(price => {
