@@ -87,8 +87,7 @@ class IGTrader {
       }
 
       // const pricesObj = await this.ig.get(`prices/${epic}/${timeframe}/${datapoints + 1}`, 2)
-      const roundedDatapoints = Math.ceil(datapoints)
-      const pricesObj = await this.ig.get(`prices/${epic}?resolution=${timeframe}&max=${roundedDatapoints}&pageSize=${roundedDatapoints}`, 3)
+      const pricesObj = await this.ig.get(`prices/${epic}?resolution=${timeframe}&max=${datapoints+1}&pageSize=${datapoints+1}`, 3)
 
       const { prices, metadata: { allowance }} = pricesObj
       const { remainingAllowance, totalAllowance, allowanceExpiry } = allowance
