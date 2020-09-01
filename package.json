@@ -29,10 +29,10 @@
   "homepage": "https://github.com/chrisgitrepo/ig-trader#readme",
   "dependencies": {
     "axios": "^0.19.2",
-    "moment-timezone": "^0.5.28",
+    "moment-timezone": "^0.5.31",
     "rambda": "5.1.0"
   },
   "devDependencies": {
-    "jest": "^24.8.0"
+    "jest": "^24.9.0"
   }
 }
