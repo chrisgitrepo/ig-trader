@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/chrisgitrepo/ig-trader#readme",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "moment-timezone": "^0.5.31",
     "rambda": "5.1.0"
   },
