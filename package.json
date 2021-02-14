@@ -1,6 +1,6 @@
 {
   "name": "ig-trader",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "A client to programmatically spreadbet with IG",
   "main": "./src/index.js",
   "files": [
