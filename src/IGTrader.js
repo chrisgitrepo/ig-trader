@@ -87,9 +87,9 @@ class IGTrader {
       }
 
       // const pricesObj = await this.ig.get(`prices/${epic}/${timeframe}/${datapoints + 1}`, 2)
-      const pricesObj = await this.ig.get(`prices/${epic}?resolution=${timeframe}&max=${datapoints+1}&pageSize=${datapoints+1}`, 3)
+      const pricesObj = await this.ig.get(`prices/${epic}?resolution=${timeframe}&max=${datapoints + 1}&pageSize=${datapoints + 1}`, 3)
 
-      const { prices, metadata: { allowance }} = pricesObj
+      const { prices, metadata: { allowance } } = pricesObj
       const { remainingAllowance, totalAllowance, allowanceExpiry } = allowance
       const formattedExpiry = (moment.duration(allowanceExpiry, 'seconds').asDays()).toFixed(1)
 
@@ -137,7 +137,7 @@ class IGTrader {
       const epics = markets.map(m => m.epic).join(',')
       const marketsObj = await this.ig.get('markets', 2, { epics })
       const { marketDetails } = marketsObj
-      if(!marketDetails) {
+      if (!marketDetails) {
         console.log(`NO marketDetails found, full markets response = ${JSON.stringify(marketsObj)}`)
       }
       const dateUpdated = moment().format(C.DATE_FORMAT)
@@ -148,6 +148,7 @@ class IGTrader {
 
         return {
           currency: offer.instrument.name,
+          spread: Math.abs(offer.snapshot.bid - offer.snapshot.offer),
           currentPrice: getMidPrice(offer.snapshot.bid, offer.snapshot.offer),
           timeUpdated: updateTimeUTC.format(C.TIME_FORMAT),
           dateUpdated,
