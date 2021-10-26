@@ -42,40 +42,12 @@ const markets = [{
   maxSpread: 2.8,
   retailMarginPct: 0.033
 }, {
-  epic: 'CS.D.AUDJPY.TODAY.IP',
-  instrumentName: 'AUD/JPY',
-  instrumentType: 'CURRENCIES',
-  expiry: 'DFB',
-  maxSpread: 1.6,
-  retailMarginPct: 0.05
-}, {
-  epic: 'CS.D.AUDUSD.TODAY.IP',
-  instrumentName: 'AUD/USD',
-  instrumentType: 'CURRENCIES',
-  expiry: 'DFB',
-  maxSpread: 1,
-  retailMarginPct: 0.05
-}, {
   epic: 'CS.D.USDCAD.TODAY.IP',
   instrumentName: 'USD/CAD',
   instrumentType: 'CURRENCIES',
   expiry: 'DFB',
   maxSpread: 2,
   retailMarginPct: 0.033
-}, {
-  epic: 'CS.D.EURAUD.TODAY.IP',
-  instrumentName: 'EUR/AUD',
-  instrumentType: 'CURRENCIES',
-  expiry: 'DFB',
-  maxSpread: 2.1,
-  retailMarginPct: 0.05
-}, {
-  epic: 'CS.D.GBPAUD.TODAY.IP',
-  instrumentName: 'GBP/AUD',
-  instrumentType: 'CURRENCIES',
-  expiry: 'DFB',
-  maxSpread: 2.2,
-  retailMarginPct: 0.05
 }, {
   epic: 'CS.D.CADJPY.TODAY.IP',
   instrumentName: 'CAD/JPY',
@@ -97,13 +69,6 @@ const markets = [{
   expiry: 'DFB',
   maxSpread: 3.8,
   retailMarginPct: 0.033
-}, {
-  epic: 'CS.D.AUDCAD.TODAY.IP',
-  instrumentName: 'AUD/CAD',
-  instrumentType: 'CURRENCIES',
-  expiry: 'DFB',
-  maxSpread: 2.3,
-  retailMarginPct: 0.05
 }]
 
 module.exports = { timeframes, markets }
