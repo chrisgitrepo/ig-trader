@@ -195,36 +195,36 @@ const markets = [{
   expiry: 'DFB',
   maxSpread: 4.3,
   retailMarginPct: 0.05
+},
+{
+  epic: 'CS.D.USDSGD.TODAY.IP',
+  instrumentName: 'USD/SGD',
+  instrumentType: 'CURRENCIES',
+  expiry: 'DFB',
+  maxSpread: 3.1,
+  retailMarginPct: 0.05
+}, {
+  epic: 'CS.D.GBPSGD.TODAY.IP',
+  instrumentName: 'GBP/SGD',
+  instrumentType: 'CURRENCIES',
+  expiry: 'DFB',
+  maxSpread: 5.1,
+  retailMarginPct: 0.05
+}, {
+  epic: 'CS.D.SGDJPY.TODAY.IP',
+  instrumentName: 'SGD/JPY',
+  instrumentType: 'CURRENCIES',
+  expiry: 'DFB',
+  maxSpread: 4.1,
+  retailMarginPct: 0.05
+}, {
+  epic: 'CS.D.EURSGD.TODAY.IP',
+  instrumentName: 'EUR/SGD',
+  instrumentType: 'CURRENCIES',
+  expiry: 'DFB',
+  maxSpread: 4.1,
+  retailMarginPct: 0.05
 }
-// {
-//   epic: 'CS.D.USDSGD.TODAY.IP',
-//   instrumentName: 'USD/SGD',
-//   instrumentType: 'CURRENCIES',
-//   expiry: 'DFB',
-//   maxSpread: 3.1,
-//   retailMarginPct: 0.05
-// }, {
-//   epic: 'CS.D.GBPSGD.TODAY.IP',
-//   instrumentName: 'GBP/SGD',
-//   instrumentType: 'CURRENCIES',
-//   expiry: 'DFB',
-//   maxSpread: 5.1,
-//   retailMarginPct: 0.05
-// }, {
-//   epic: 'CS.D.SGDJPY.TODAY.IP',
-//   instrumentName: 'SGD/JPY',
-//   instrumentType: 'CURRENCIES',
-//   expiry: 'DFB',
-//   maxSpread: 4.1,
-//   retailMarginPct: 0.05
-// }, {
-//   epic: 'CS.D.EURSGD.TODAY.IP',
-//   instrumentName: 'EUR/SGD',
-//   instrumentType: 'CURRENCIES',
-//   expiry: 'DFB',
-//   maxSpread: 4.1,
-//   retailMarginPct: 0.05
-// }
 ]
 
 module.exports = { timeframes, markets }
