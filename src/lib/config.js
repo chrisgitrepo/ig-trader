@@ -195,15 +195,15 @@ const markets = [{
   expiry: 'DFB',
   maxSpread: 4.3,
   retailMarginPct: 0.05
-}
+}, {
+  epic: 'CS.D.USDSGD.TODAY.IP',
+  instrumentName: 'USD/SGD',
+  instrumentType: 'CURRENCIES',
+  expiry: 'DFB',
+  maxSpread: 3.1,
+  retailMarginPct: 0.05
+},
 // {
-//   epic: 'CS.D.USDSGD.TODAY.IP',
-//   instrumentName: 'USD/SGD',
-//   instrumentType: 'CURRENCIES',
-//   expiry: 'DFB',
-//   maxSpread: 3.1,
-//   retailMarginPct: 0.05
-// }, {
 //   epic: 'CS.D.GBPSGD.TODAY.IP',
 //   instrumentName: 'GBP/SGD',
 //   instrumentType: 'CURRENCIES',
