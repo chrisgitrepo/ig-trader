@@ -223,13 +223,6 @@ const markets = [{
   expiry: 'DFB',
   maxSpread: 4.1,
   retailMarginPct: 0.05
-}, {
-  epic: 'CS.D.USDHKD.TODAY.IP',
-  instrumentName: 'USD/HKD',
-  instrumentType: 'CURRENCIES',
-  expiry: 'DFB',
-  maxSpread: 4.1,
-  retailMarginPct: 0.05
 }]
 
 module.exports = { timeframes, markets }
