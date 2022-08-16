@@ -168,13 +168,6 @@ const markets = [{
   maxSpread: 2.3,
   retailMarginPct: 0.05
 }, {
-  epic: 'CS.D.CADCHF.TODAY.IP',
-  instrumentName: 'CAD/CHF',
-  instrumentType: 'CURRENCIES',
-  expiry: 'DFB',
-  maxSpread: 2.8,
-  retailMarginPct: 0.033
-}, {
   epic: 'CS.D.NZDCAD.TODAY.IP',
   instrumentName: 'NZD/CAD',
   instrumentType: 'CURRENCIES',
