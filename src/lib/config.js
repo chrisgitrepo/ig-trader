@@ -49,13 +49,6 @@ const markets = [{
   maxSpread: 2.8,
   retailMarginPct: 0.033
 }, {
-  epic: 'CS.D.USDCHF.TODAY.IP',
-  instrumentName: 'USD/CHF',
-  instrumentType: 'CURRENCIES',
-  expiry: 'DFB',
-  maxSpread: 2.3,
-  retailMarginPct: 0.033
-}, {
   epic: 'CS.D.AUDJPY.TODAY.IP',
   instrumentName: 'AUD/JPY',
   instrumentType: 'CURRENCIES',
@@ -75,13 +68,6 @@ const markets = [{
   instrumentType: 'CURRENCIES',
   expiry: 'DFB',
   maxSpread: 2.3,
-  retailMarginPct: 0.033
-}, {
-  epic: 'CS.D.USDCAD.TODAY.IP',
-  instrumentName: 'USD/CAD',
-  instrumentType: 'CURRENCIES',
-  expiry: 'DFB',
-  maxSpread: 2,
   retailMarginPct: 0.033
 }, {
   epic: 'CS.D.EURAUD.TODAY.IP',
