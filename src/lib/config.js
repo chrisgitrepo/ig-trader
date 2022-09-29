@@ -202,6 +202,27 @@ const markets = [{
   expiry: 'DFB',
   maxSpread: 4.1,
   retailMarginPct: 0.05
+}, {
+  epic: 'CS.D.USDCHF.TODAY.IP',
+  instrumentName: 'USD/CHF',
+  instrumentType: 'CURRENCIES',
+  expiry: 'DFB',
+  maxSpread: 2.3,
+  retailMarginPct: 0.033
+}, {
+  epic: 'CS.D.USDCAD.TODAY.IP',
+  instrumentName: 'USD/CAD',
+  instrumentType: 'CURRENCIES',
+  expiry: 'DFB',
+  maxSpread: 2,
+  retailMarginPct: 0.033
+}, {
+  epic: 'CS.D.CADCHF.TODAY.IP',
+  instrumentName: 'CAD/CHF',
+  instrumentType: 'CURRENCIES',
+  expiry: 'DFB',
+  maxSpread: 2.8,
+  retailMarginPct: 0.033
 }]
 
 module.exports = { timeframes, markets }
