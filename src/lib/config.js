@@ -1,14 +1,12 @@
 const timeframes = ['SECOND', 'MINUTE', 'MINUTE_2', 'MINUTE_3', 'MINUTE_5', 'MINUTE_15', 'MINUTE_30', 'HOUR', 'HOUR_2', 'HOUR_3', 'HOUR_4', 'DAY', 'WEEK', 'MONTH']
-const markets = [
-//   {
-//   epic: 'CS.D.GBPUSD.TODAY.IP',
-//   instrumentName: 'GBP/USD',
-//   instrumentType: 'CURRENCIES',
-//   expiry: 'DFB',
-//   maxSpread: 1.2,
-//   retailMarginPct: 0.033
-// },
-{
+const markets = [{
+  epic: 'CS.D.GBPUSD.TODAY.IP',
+  instrumentName: 'GBP/USD',
+  instrumentType: 'CURRENCIES',
+  expiry: 'DFB',
+  maxSpread: 1.2,
+  retailMarginPct: 0.033
+}, {
   epic: 'CS.D.USDJPY.TODAY.IP',
   instrumentName: 'USD/JPY',
   instrumentType: 'CURRENCIES',
