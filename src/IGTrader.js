@@ -88,7 +88,7 @@ class IGTrader {
         return []
       }
 
-      const time30minsAgo = moment.subtract(30, "minutes").format(IG_TIME_FORMAT);
+      const time30minsAgo = moment().subtract(30, "minutes").format(IG_TIME_FORMAT);
       const dateString = datapoints === 1 ? `&from=${time30minsAgo}&to=${time30minsAgo}` : "";
 
       // const pricesObj = await this.ig.get(`prices/${epic}/${timeframe}/${datapoints + 1}`, 2)
