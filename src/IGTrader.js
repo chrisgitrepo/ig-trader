@@ -6,6 +6,8 @@ const { getMidPrice } = require('./lib/math')
 const { timeframes, markets } = require('./lib/config')
 const C = require('./lib/constants')
 
+const IG_TIME_FORMAT = 'YYYY-MM-DD[T]HH:mm:ss';
+
 class IGTrader {
 
   constructor(igParams) {
@@ -86,8 +88,11 @@ class IGTrader {
         return []
       }
 
+      const time30minsAgo = moment.subtract(30, "minutes").format(IG_TIME_FORMAT);
+      const dateString = datapoints === 1 ? `&from=${time30minsAgo}&to=${time30minsAgo}` : "";
+
       // const pricesObj = await this.ig.get(`prices/${epic}/${timeframe}/${datapoints + 1}`, 2)
-      const pricesObj = await this.ig.get(`prices/${epic}?resolution=${timeframe}&max=${datapoints + 1}&pageSize=${datapoints + 1}`, 3)
+      const pricesObj = await this.ig.get(`prices/${epic}?resolution=${timeframe}&max=${datapoints + 1}&pageSize=${datapoints + 1}${dateString}`, 3)
 
       const { prices, metadata: { allowance } } = pricesObj
       const { remainingAllowance, totalAllowance, allowanceExpiry } = allowance
@@ -102,7 +107,7 @@ class IGTrader {
         const open = getMidPrice(price.openPrice.bid, price.openPrice.ask)
         const mid = getMidPrice(open, close)
 
-        const snapshotTimeUTC = moment(price.snapshotTimeUTC, 'YYYY-MM-DD[T]HH:mm:ss')
+        const snapshotTimeUTC = moment(price.snapshotTimeUTC, IG_TIME_FORMAT)
 
         return {
           id: C.historicalID({ pair, timeframe }),
@@ -115,7 +120,9 @@ class IGTrader {
           low: getMidPrice(price.lowPrice.bid, price.lowPrice.ask)
         }
       })
-      return IGTrader.removeCurrentCandle(formattedPrices)
+      return formattedPrices.length > 1
+        ? IGTrader.removeCurrentCandle(formattedPrices)
+        : formattedPrices;
 
     } catch (error) {
       console.error(`Error with pair: ${pair}. ${error}`)
