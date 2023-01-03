@@ -125,16 +125,14 @@ const markets = [{
   expiry: 'DFB',
   maxSpread: 3.3,
   retailMarginPct: 0.05
-},
-// {
-//   epic: 'CS.D.AUDNZD.TODAY.IP',
-//   instrumentName: 'AUD/NZD',
-//   instrumentType: 'CURRENCIES',
-//   expiry: 'DFB',
-//   maxSpread: 3.3,
-//   retailMarginPct: 0.05
-// }, 
-{
+}, {
+  epic: 'CS.D.AUDNZD.TODAY.IP',
+  instrumentName: 'AUD/NZD',
+  instrumentType: 'CURRENCIES',
+  expiry: 'DFB',
+  maxSpread: 3.3,
+  retailMarginPct: 0.05
+}, {
   epic: 'CS.D.NZDUSD.TODAY.IP',
   instrumentName: 'NZD/USD',
   instrumentType: 'CURRENCIES',
