@@ -161,13 +161,6 @@ const markets = [{
   maxSpread: 3.8,
   retailMarginPct: 0.05
 }, {
-  epic: 'CS.D.GBPNZD.TODAY.IP',
-  instrumentName: 'GBP/NZD',
-  instrumentType: 'CURRENCIES',
-  expiry: 'DFB',
-  maxSpread: 5.3,
-  retailMarginPct: 0.05
-}, {
   epic: 'CS.D.USDSGD.TODAY.IP',
   instrumentName: 'USD/SGD',
   instrumentType: 'CURRENCIES',
